@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/milcab/rest-rant/issues"
   },
-  "homepage": "https://github.com/milcab/rest-rant#readme"
+  "homepage": "https://github.com/milcab/rest-rant#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2"
+  }
 }
