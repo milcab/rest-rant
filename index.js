@@ -1,15 +1,25 @@
-
 require('dotenv').config()
 
 const express = require('express')
 const app = express()
 
-app.use('/places', require('./controllers/places'))
+app.use(express.urlencoded({ extended: true }))
+app.use(express.static('public'))
 
-app.get('/', (req, res) => {
-    res.send('Hello World')
-})
+// MIDDLEWARE
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+//routes
+
+app.use('/places', require('./controllers/places.js'))
+
 app.get('*', (req, res) => {
-    res.status(404).send('<h1>404 Page</h1>')
+    res.render('404/index')
 })
-app.listen(process.env.PORT)
+
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+    console.log('running at port', PORT);
+})
