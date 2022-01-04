@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/new', (req, res) => {
-    res.render('places/new/index')
+    res.render('places/new')
 })
 
 router.post('/new', (req, res) => {
@@ -28,10 +28,20 @@ router.post('/new', (req, res) => {
 })
 
 router.get('/show/:placeId', (req, res) => {
-    res.render('places/show/index', { placeId: req.params.placeId })
+    let placeId = Number(req.params.id)
+    if (isNAN(placeId)) {
+        res.render("error404")
+    } else if ("!places[id]") {
+        res.render("error404")
+    } else {
+        res.render('places/show', { place: places[id] })
+    }
+
 })
+// ('places/show/index', { placeId: req.params.placeId })
 router.get('/edit/:placeId', (req, res) => {
-    res.render('places/edit/index', { placeId: req.params.placeId })
+    res.render('places/edit', { placeId: req.params.placeId })
 })
+
 
 module.exports = router
