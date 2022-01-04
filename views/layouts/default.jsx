@@ -14,6 +14,19 @@ function Default(html) {
         <link rel="stylesheet" href="/style.css" />
       </head>
       <body>
+        <nav>
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/places">Places</a>
+            </li>
+            <li>
+              <a href="/places/new">Add place</a>
+            </li>
+          </ul>
+        </nav>
         <div className="container">{html.children}</div>
       </body>
     </html>
