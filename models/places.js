@@ -10,4 +10,25 @@ module.exports = [{
     state: 'AZ',
     cuisines: 'Coffee, Bakery',
     pic: 'http://placekitten.com/250/250'
+},
+{
+    name: 'Coding Cat Cafe',
+    city: 'Phoenix',
+    state: 'AZ',
+    cuisines: 'Coffee, Bakery',
+    pic: 'http://placekitten.com/250/250'
+},
+{
+    name: 'Coding Cat Cafe',
+    city: 'Phoenix',
+    state: 'AZ',
+    cuisines: 'Coffee, Bakery',
+    pic: 'http://placekitten.com/250/250'
+},
+{
+    name: 'Coding Cat Cafe',
+    city: 'Phoenix',
+    state: 'AZ',
+    cuisines: 'Coffee, Bakery',
+    pic: 'http://placekitten.com/250/250'
 }]
