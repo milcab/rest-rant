@@ -14,10 +14,10 @@ app.engine('jsx', require('express-react-views').createEngine())
 app.use(methodOverride('_method'))
 //routes
 
-app.use('/', require('./controllers/places.js'))
+app.use('/places', require('./controllers/places.js'))
 
 app.get('*', (req, res) => {
-    res.render('404/index')
+    res.render('error404')
 })
 
 const PORT = process.env.PORT || 3000

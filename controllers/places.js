@@ -40,19 +40,39 @@ router.post('/place', (req, res) => {
     res.redirect('/places')
 })
 
-
 // edit form by place id
-router.get('/edit/:placeId', (req, res) => {
-    res.render('places/edit', { placeId: req.params.placeId })
+router.get('/:id/edit', (req, res) => {
+    const place = places[req.params.id]
+    res.render('places/edit', { place })
 })
 // update an exisiting place via put
-router.put('/place/:placeId', (req, res) => {
-    res.send('updated a place, YAY!')
+router.put('/:placeId/edit', (req, res) => {
+    const place = places[req.params.placeId];
+
+    place.name = req.body.name
+    place.picture = req.body.picture
+    place.city = req.body.city
+    place.state = req.body.state
+    place.cuicines = req.body.cuicines
+    place.pic = req.body.pic
+
+    res.redirect('/places')
 })
 
 // delete a  place
-router.delete('/place/:placeId', (req, res) => {
-    res.send('deleted a place, YAY!')
+router.delete('/:id', (req, res) => {
+    console.log(req.params)
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+        places.splice(id, 1)
+        res.redirect('/places')
+    }
 })
 
 module.exports = router
