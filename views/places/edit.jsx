@@ -5,7 +5,7 @@ function Index({ place }) {
   return (
     <Def>
       <main>
-        <h1>Editting {place.name}</h1>
+        <h1>Edit Place</h1>
         <form action="edit?_method=PUT" method="POST">
           <div className="form-group">
             <label for="placeName">Place Name</label>
@@ -66,7 +66,7 @@ function Index({ place }) {
             </small>
           </div>
           <div className="form-group">
-            <label for="imageUrl">Image URL</label>
+            {/* <label for="imageUrl">Image URL</label>
             <input
               type="url"
               className="form-control"
@@ -74,7 +74,7 @@ function Index({ place }) {
               value={place.pic}
               name="pic"
               placeholder="https://place.com/bestPlace.jpg"
-            />
+            /> */}
           </div>
           <div className="form-group form-check">
             <input
