@@ -6,7 +6,7 @@ function Index() {
     <Def>
       <main>
         <h1>Add a new place</h1>
-        <form action="new" method="POST">
+        <form action="/places" method="POST">
           <div className="form-group">
             <label for="placeName">Place Name</label>
             <input
@@ -52,13 +52,17 @@ function Index() {
               type="text"
               className="form-control"
               id="placeName"
-              name="cuicines"
+              name="cuisines"
               aria-describedby="placeHelp"
               placeholder="Cuisines Name :-)"
             />
             <small id="placeHelp" className="form-text text-muted">
               We love place!
             </small>
+          </div>
+          <div className="form-group">
+            <label for="founded">Founded Year</label>
+            <input className="form-control" id="founded" name="founded" />
           </div>
           <div className="form-group">
             <label for="imageUrl">Image URL</label>
@@ -69,17 +73,6 @@ function Index() {
               name="pic"
               placeholder="https://place.com/bestPlace.jpg"
             />
-          </div>
-          <div className="form-group form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="hasGluten"
-              name="hasGluten"
-            />
-            <label className="form-check-label" for="hasGluten">
-              Has Gluten
-            </label>
           </div>
           <button type="submit" className="btn btn-primary">
             Submit

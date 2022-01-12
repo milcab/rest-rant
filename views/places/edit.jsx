@@ -56,8 +56,8 @@ function Index({ place }) {
               type="text"
               className="form-control"
               id="placeName"
-              name="cuicines"
-              value={place.cuicines}
+              name="cuisines"
+              value={place.cuisines}
               aria-describedby="placeHelp"
               placeholder="Cuisines Name :-)"
             />
@@ -75,18 +75,6 @@ function Index({ place }) {
               name="pic"
               placeholder="https://place.com/bestPlace.jpg"
             /> */}
-          </div>
-          <div className="form-group form-check">
-            <input
-              type="checkbox"
-              className="form-check-input"
-              id="hasGluten"
-              value={place.hasGlutten}
-              name="hasGluten"
-            />
-            <label className="form-check-label" for="hasGluten">
-              Has Gluten
-            </label>
           </div>
           <button type="submit" className="btn btn-primary">
             Submit
