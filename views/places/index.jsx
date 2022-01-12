@@ -4,7 +4,7 @@ const Default = require("../layouts/default");
 function Index({ places }) {
   let placesFormatted = places.map((place) => {
     return (
-      <div key={place.id} className="col-sm-6 col-md-4">
+      <div key={place.id} className="col-sm-6 col-md-4 col-lg-3">
         <div className="card">
           <img src={place.pic} alt={place.name} className="card-img-top" />
           <div className="card-body">
