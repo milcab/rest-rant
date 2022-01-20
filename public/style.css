@@ -31,3 +31,6 @@ nav a:hover {
   color: pink;
   text-decoration: none;
 }
+.color-change {
+  color: rgb(0, 204, 255);
+}
