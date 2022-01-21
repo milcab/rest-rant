@@ -11,7 +11,7 @@ function Index(data) {
   return (
     <Def>
       <main>
-        <h1>Add a new place</h1>
+        <h1 className='blue'>Add a New Place</h1>
         {message}
         <form action="/places" method="POST">
           <div className="form-group">
