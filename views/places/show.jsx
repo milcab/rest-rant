@@ -43,7 +43,6 @@ function show(data) {
           </div>
         </div>
 
-        
         <div className="row">
           <div className="col-sm-12 p-3">
             <h2 className="color-change">Comments</h2>

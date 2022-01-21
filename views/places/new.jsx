@@ -1,11 +1,18 @@
 const React = require("react");
 const Def = require("../layouts/default");
-// views/layouts/default.jsx
-function Index() {
+
+function Index(data) {
+  let message = "";
+
+  if (data.message) {
+    message = <h4 className="alert-danger">{data.message}</h4>;
+  }
+
   return (
     <Def>
       <main>
         <h1>Add a new place</h1>
+        {message}
         <form action="/places" method="POST">
           <div className="form-group">
             <label for="placeName">Place Name</label>
@@ -62,7 +69,13 @@ function Index() {
           </div>
           <div className="form-group">
             <label for="founded">Founded Year</label>
-            <input className="form-control" id="founded" name="founded" />
+            <input
+              className="form-control"
+              id="founded"
+              name="founded"
+              type="number"
+              value={new Date().getFullYear()}
+            />
           </div>
           <div className="form-group">
             <label for="imageUrl">Image URL</label>
