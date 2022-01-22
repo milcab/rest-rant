@@ -41,6 +41,7 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', (req, res) => {
     db.Place.findById(req.params.id)
+        .populate('comments')
         .then(place => {
             res.render('places/show', { place })
         })
@@ -68,6 +69,31 @@ router.post('/:id/rant', (req, res) => {
 
 router.delete('/:id/rant/:rantId', (req, res) => {
     res.send('GET /places/:id/rant/:rantId stub')
+})
+
+// comments routes
+router.post('/:id/comment', async (req, res) => {
+    try {
+        // turn checkbox into boolean
+        req.body.rant = !!req.body.rant
+
+        // create comment
+        const comment = await db.Comment.create(req.body)
+        // find place
+        const place = await db.Place.findById(req.params.id)
+
+        // add comment to place
+        place.comments.push(comment.id)
+        // save place update
+        await place.save()
+
+        // redirect to place page
+        res.redirect(`/places/${req.params.id}`)
+    } catch (error) {
+        console.log(error);
+        // oops I messed up
+        res.render('error404')
+    }
 })
 
 module.exports = router
