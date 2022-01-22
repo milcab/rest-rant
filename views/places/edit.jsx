@@ -65,17 +65,6 @@ function Index({ place }) {
               We love place!
             </small>
           </div>
-          <div className="form-group">
-            {/* <label for="imageUrl">Image URL</label>
-            <input
-              type="url"
-              className="form-control"
-              id="imageUrl"
-              value={place.pic}
-              name="pic"
-              placeholder="https://place.com/bestPlace.jpg"
-            /> */}
-          </div>
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
