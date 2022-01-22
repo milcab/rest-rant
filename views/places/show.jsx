@@ -8,33 +8,45 @@ function Comments({ comments, placeId }) {
     return <h4>No comments yet</h4>;
   }
 
-  return comments.map((comment) => (
-    <div className="border">
-      <h2 className="rant">{comment.rant ? "Rant! 😡" : "Rave! 😻"}</h2>
-      <h4>{comment.content}</h4>
-      <h3>
-        <stong>- {comment.author}</stong>
-      </h3>
-      <h4>Rating: {comment.stars}</h4>
-
-      <form
-        method="POST"
-        action={`/places/${placeId}/comment/${comment.id}?_method=DELETE`}
-      >
-        <input
-          type="submit"
-          className="btn btn-danger"
-          value="Delete Comment"
-        />
-      </form>
+  return (
+    <div className="d-flex flex-wrap ">
+      {comments.map((comment) => (
+        <div
+          className="col card mx-4 mb-4 flex-grow-1"
+          style={{ minWidth: "250px", maxWidth: "250px" }}
+        >
+          <div className="card-body">
+            <h2 className="card-title rant">
+              {comment.rant ? "Rant! 😡" : "Rave! 😻"}
+            </h2>
+            <h6 className="card-subtitle mb-2 text-muted">
+              Rating: {comment.stars}
+            </h6>
+            <p className="card-text">{comment.content}</p>
+            <p className="card-footer">
+              <stong>- {comment.author}</stong>
+            </p>
+            <form
+              method="POST"
+              action={`/places/${placeId}/comment/${comment.id}?_method=DELETE`}
+            >
+              <input
+                type="submit"
+                className="btn btn-danger"
+                value="Delete Comment"
+              />
+            </form>
+          </div>
+        </div>
+      ))}
     </div>
-  ));
+  );
 }
 
 function Controls({ placeId }) {
   return (
     <div className="d-flex justify-content-center">
-      <div>
+      <div className="me-4">
         <a href={`/places/${placeId}/edit`} className="btn btn-warning">
           Edit <FaEdit />
         </a>

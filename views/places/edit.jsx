@@ -2,9 +2,6 @@ const React = require("react");
 const Def = require("../layouts/default");
 // views/layouts/default.jsx
 function Index({ place }) {
-  console.log({
-    place,
-  });
   return (
     <Def>
       <main>
