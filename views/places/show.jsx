@@ -39,6 +39,26 @@ function Controls({ data }) {
   );
 }
 
+function Rating(data) {
+  if (!data.place.comments.length) {
+    return <h3 className="inactive">Not yet rated</h3>;
+  }
+
+  let sumRatings = data.place.comments.reduce((tot, c) => {
+    return tot + c.stars;
+  }, 0);
+
+  let averageRating = Math.round(sumRatings / data.place.comments.length);
+
+  let stars = "";
+
+  for (let i = 0; i < averageRating; i++) {
+    stars += "⭐️";
+  }
+
+  return <h3>{stars} stars</h3>;
+}
+
 function show(data) {
   return (
     <Def>
@@ -60,7 +80,7 @@ function show(data) {
 
               <div>
                 <h2 className="color-change col-sm-12">Rating</h2>
-                <p className="col-sm-12">Not Rated</p>
+                <Rating data={data} />
               </div>
               <div>
                 <h2 className="color-change col-sm-12">Description</h2>
