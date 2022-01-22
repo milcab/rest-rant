@@ -82,13 +82,6 @@ router.get('/:id/edit', (req, res) => {
         })
 })
 
-router.post('/:id/rant', (req, res) => {
-    res.send('GET /places/:id/rant stub')
-})
-
-router.delete('/:id/rant/:rantId', (req, res) => {
-    res.send('GET /places/:id/rant/:rantId stub')
-})
 
 // comments routes
 router.post('/:id/comment', async (req, res) => {
@@ -114,5 +107,29 @@ router.post('/:id/comment', async (req, res) => {
         res.render('error404')
     }
 })
+
+// comments routes
+router.delete('/:placeId/comment/:commentId', async (req, res) => {
+    try {
+        const { placeId, commentId } = req.params;
+        const place = await db.Place.findById(placeId)
+        const commentIndex = place.comments.indexOf(commentId)
+
+        if (commentIndex > -1) {
+            place.comments.splice(commentIndex, 1)
+            // save place update
+            await place.save()
+            await db.Comment.findByIdAndDelete(commentId)
+        }
+
+        // redirect to place page
+        res.redirect(`/places/${req.params.placeId}`)
+    } catch (error) {
+        console.log(error);
+        // oops I messed up
+        res.render('error404')
+    }
+})
+
 
 module.exports = router

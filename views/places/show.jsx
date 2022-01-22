@@ -3,7 +3,7 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 const Def = require("../layouts/default");
 const CommentForm = require("./commentForm");
 
-function Comments({ comments }) {
+function Comments({ comments, placeId }) {
   if (!comments.length) {
     return <h4>No comments yet</h4>;
   }
@@ -16,6 +16,17 @@ function Comments({ comments }) {
         <stong>- {comment.author}</stong>
       </h3>
       <h4>Rating: {comment.stars}</h4>
+
+      <form
+        method="POST"
+        action={`/places/${placeId}/comment/${comment.id}?_method=DELETE`}
+      >
+        <input
+          type="submit"
+          className="btn btn-danger"
+          value="Delete Comment"
+        />
+      </form>
     </div>
   ));
 }
@@ -98,7 +109,7 @@ function show(data) {
         <div className="row">
           <div className="col-sm-12 p-3">
             <h2 className="color-change">Comments</h2>
-            <Comments comments={data.place.comments} />
+            <Comments comments={data.place.comments} placeId={data.place.id} />
 
             <CommentForm placeId={data.place.id} />
           </div>
