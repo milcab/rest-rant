@@ -30,7 +30,7 @@ function Index({ place }) {
               className="form-control"
               id="placeName"
               name="picture"
-              value={place.picture}
+              value={place.pic}
               aria-describedby="placeHelp"
               placeholder="Enter Picture"
             />
