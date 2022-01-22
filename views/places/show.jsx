@@ -20,16 +20,16 @@ function Comments({ comments }) {
   ));
 }
 
-function Controls({ data }) {
+function Controls({ placeId }) {
   return (
     <div className="d-flex justify-content-center">
       <div>
-        <a href={`/places/${data.place.id}/edit`} className="btn btn-warning">
+        <a href={`/places/${placeId}/edit`} className="btn btn-warning">
           Edit <FaEdit />
         </a>
       </div>
       <div>
-        <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}>
+        <form method="POST" action={`/places/${placeId}?_method=DELETE`}>
           <button type="submit" className="btn btn-danger">
             Delete <FaTrashAlt />
           </button>
@@ -39,16 +39,16 @@ function Controls({ data }) {
   );
 }
 
-function Rating(data) {
-  if (!data.place.comments.length) {
+function Rating({ comments }) {
+  if (!comments.length) {
     return <h3 className="inactive">Not yet rated</h3>;
   }
 
-  let sumRatings = data.place.comments.reduce((tot, c) => {
+  let sumRatings = comments.reduce((tot, c) => {
     return tot + c.stars;
   }, 0);
 
-  let averageRating = Math.round(sumRatings / data.place.comments.length);
+  let averageRating = Math.round(sumRatings / comments.length);
 
   let stars = "";
 
@@ -80,7 +80,7 @@ function show(data) {
 
               <div>
                 <h2 className="color-change col-sm-12">Rating</h2>
-                <Rating data={data} />
+                <Rating comments={data.place.comments} />
               </div>
               <div>
                 <h2 className="color-change col-sm-12">Description</h2>
@@ -90,7 +90,7 @@ function show(data) {
                 <h2 className="color-change col-sm-12">Cuisine</h2>
                 <p className="col-sm-12">serving {data.place.cuisines}</p>
               </div>
-              <Controls data={data} />
+              <Controls placeId={data.place.id} />
             </div>
           </div>
         </div>
