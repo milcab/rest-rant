@@ -24,7 +24,7 @@ function Comments({ comments, placeId }) {
             </h6>
             <p className="card-text">{comment.content}</p>
             <p className="card-footer">
-              <stong>- {comment.author}</stong>
+              <stong>- {comment.author || "Anonymous"}</stong>
             </p>
             <form
               method="POST"
