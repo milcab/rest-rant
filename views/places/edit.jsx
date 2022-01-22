@@ -2,13 +2,16 @@ const React = require("react");
 const Def = require("../layouts/default");
 // views/layouts/default.jsx
 function Index({ place }) {
+  console.log({
+    place,
+  });
   return (
     <Def>
       <main>
         <h1>Edit Place</h1>
         <form action="edit?_method=PUT" method="POST">
           <div className="form-group">
-            <label for="placeName">Place Name</label>
+            <label htmlFor="placeName">Place Name</label>
             <input
               required
               type="text"
@@ -20,7 +23,7 @@ function Index({ place }) {
               placeholder="Enter Place Name"
             />
 
-            <label for="placeName">Place Picture</label>
+            <label htmlFor="placeName">Place Picture</label>
             <input
               required
               type="text"
@@ -31,7 +34,7 @@ function Index({ place }) {
               aria-describedby="placeHelp"
               placeholder="Enter Picture"
             />
-            <label for="placeName">City</label>
+            <label htmlFor="placeName">City</label>
             <input
               type="text"
               className="form-control"
@@ -41,7 +44,7 @@ function Index({ place }) {
               aria-describedby="placeHelp"
               placeholder="Enter City"
             />
-            <label for="placeName">State</label>
+            <label htmlFor="placeName">State</label>
             <input
               type="text"
               className="form-control"
@@ -51,7 +54,7 @@ function Index({ place }) {
               aria-describedby="placeHelp"
               placeholder="Enter State Name"
             />
-            <label for="placeName">Cuisines</label>
+            <label htmlFor="placeName">Cuisines</label>
             <input
               type="text"
               className="form-control"

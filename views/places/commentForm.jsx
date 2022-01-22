@@ -15,12 +15,12 @@ module.exports = function ({ placeId }) {
                 name="content"
                 style={{ height: "100px" }}
               ></textarea>
-              <label for="floatingTextarea2">What did you think?</label>
+              <label htmlFor="floatingTextarea2">What did you think?</label>
             </div>
           </div>
           <div className="row p-4">
             <div className="col">
-              <label for="author">Author</label>
+              <label htmlFor="author">Author</label>
               <input
                 type="text"
                 className="form-control"
@@ -31,7 +31,7 @@ module.exports = function ({ placeId }) {
               />
             </div>
             <div className="col">
-              <label for="stars">Star Rating</label>
+              <label htmlFor="stars">Star Rating</label>
               <input
                 aria-describedby="starsHelp"
                 className="form-range"
@@ -53,7 +53,7 @@ module.exports = function ({ placeId }) {
                 id="rant"
                 autocomplete="off"
               />
-              <label class="btn btn-outline-primary" for="rant">
+              <label class="btn btn-outline-primary" htmlFor="rant">
                 Rant?
               </label>
             </div>

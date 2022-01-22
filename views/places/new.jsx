@@ -11,11 +11,11 @@ function Index(data) {
   return (
     <Def>
       <main>
-        <h1 className='blue'>Add a New Place</h1>
+        <h1 className="blue">Add a New Place</h1>
         {message}
         <form action="/places" method="POST">
           <div className="form-group">
-            <label for="placeName">Place Name</label>
+            <label htmlFor="placeName">Place Name</label>
             <input
               required
               type="text"
@@ -26,7 +26,7 @@ function Index(data) {
               placeholder="Enter Place Name"
             />
 
-            <label for="placeName">Place Picture</label>
+            <label htmlFor="placeName">Place Picture</label>
             <input
               required
               type="text"
@@ -36,7 +36,7 @@ function Index(data) {
               aria-describedby="placeHelp"
               placeholder="Enter Picture"
             />
-            <label for="placeName">City</label>
+            <label htmlFor="placeName">City</label>
             <input
               type="text"
               className="form-control"
@@ -45,7 +45,7 @@ function Index(data) {
               aria-describedby="placeHelp"
               placeholder="Enter City"
             />
-            <label for="placeName">State</label>
+            <label htmlFor="placeName">State</label>
             <input
               type="text"
               className="form-control"
@@ -54,7 +54,7 @@ function Index(data) {
               aria-describedby="placeHelp"
               placeholder="Enter State Name"
             />
-            <label for="placeName">Cuisines</label>
+            <label htmlFor="placeName">Cuisines</label>
             <input
               type="text"
               className="form-control"
@@ -68,7 +68,7 @@ function Index(data) {
             </small>
           </div>
           <div className="form-group">
-            <label for="founded">Founded Year</label>
+            <label htmlFor="founded">Founded Year</label>
             <input
               className="form-control"
               id="founded"
@@ -78,7 +78,7 @@ function Index(data) {
             />
           </div>
           <div className="form-group">
-            <label for="imageUrl">Image URL</label>
+            <label htmlFor="imageUrl">Image URL</label>
             <input
               type="url"
               className="form-control"
